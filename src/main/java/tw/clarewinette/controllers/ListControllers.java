@@ -20,7 +20,6 @@ public class ListControllers {
 
 	@PostMapping(value = "/add-frequently-shop")
 	public void addFrequentlyShop(@RequestBody String frequentlyShopName) {
-		System.out.println("add-frequently-shop");
 		listServices.addFrequentlyShop(0, frequentlyShopName);
 	}
 }
