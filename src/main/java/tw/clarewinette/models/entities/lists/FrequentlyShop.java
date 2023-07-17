@@ -31,14 +31,14 @@ public class FrequentlyShop implements Serializable {
 	@Column(name = "frequently_shop_name", nullable = false)
 	private String frequentlyShopName;
 
-
 	/**
 	 * 使用者代號等於
-	 * 
+	 *
 	 * @param userId 使用者代號
 	 * @return 使用者代號等於 spec
 	 */
 	public static Specification<FrequentlyShop> userIdEqual(int userId) {
 		return (root, query, builder) -> builder.equal(root.get("id").get("userId"), userId);
 	}
+
 }

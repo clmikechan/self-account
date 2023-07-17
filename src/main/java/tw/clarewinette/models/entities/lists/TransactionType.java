@@ -9,6 +9,8 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import org.springframework.data.jpa.domain.Specification;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,4 +30,15 @@ public class TransactionType implements Serializable {
 
 	@Column(name = "transaction_type_name", nullable = false)
 	private String transactionTypeName;
+
+	/**
+	 * 使用者代號等於
+	 *
+	 * @param userId 使用者代號
+	 * @return 使用者代號等於 spec
+	 */
+	public static Specification<TransactionType> userIdEqual(int userId) {
+		return (root, query, builder) -> builder.equal(root.get("id").get("userId"), userId);
+	}
+
 }

@@ -1,8 +1,6 @@
 package tw.clarewinette.models.entities;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;

@@ -36,7 +36,7 @@ CREATE TABLE transaction_type (
 CREATE TABLE account_data (
 	user_id smallint NOT NULL,
 	account_no smallint NOT NULL,
-	account_data VARCHAR (255) NOT NULL,
+	account_name VARCHAR (255) NOT NULL,
 	PRIMARY KEY (user_id, account_no),
 	FOREIGN KEY (user_id) REFERENCES user_data (user_id)
 ); -- PARTITION BY RANGE (user_id);
