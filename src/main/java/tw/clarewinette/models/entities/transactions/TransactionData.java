@@ -1,10 +1,8 @@
 package tw.clarewinette.models.entities.transactions;
 
-import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -14,20 +12,19 @@ import org.springframework.data.jpa.domain.Specification;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Table(name = "transaction_data")
-public class TransactionData implements Serializable {
+public class TransactionData {
 	@EmbeddedId
-	@AttributeOverrides({ @AttributeOverride(name = "userId", column = @Column(name = "user_id", nullable = false)),
-		@AttributeOverride(name = "transactionDate", column = @Column(name = "transaction_date", nullable = false)),
-		@AttributeOverride(name = "transactionSeqno", column = @Column(name = "transaction_seqno", nullable = false)) })
 	private TransactionDataId id;
 
 	@Column(name = "frequently_shop_no")
@@ -59,6 +56,23 @@ public class TransactionData implements Serializable {
 
 	@Column(name = "incoming_accounted_date")
 	private Date incomingAccountedDate;
+
+	@Override
+	public int hashCode() {
+		return this.getId().hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TransactionData other = (TransactionData) obj;
+		return Objects.equals(this.getId(), other.getId());
+	}
 
 	/**
 	 * 使用者代號等於

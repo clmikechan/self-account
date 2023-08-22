@@ -1,9 +1,7 @@
 package tw.clarewinette.models.entities.lists;
 
-import java.io.Serializable;
+import java.util.Objects;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -22,14 +20,29 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Table(name = "frequently_shop")
-public class FrequentlyShop implements Serializable {
+public class FrequentlyShop {
 	@EmbeddedId
-	@AttributeOverrides({ @AttributeOverride(name = "userId", column = @Column(name = "user_id", nullable = false)),
-			@AttributeOverride(name = "frequentlyShopNo", column = @Column(name = "frequently_shop_no", nullable = false)) })
 	private FrequentlyShopId id;
 
 	@Column(name = "frequently_shop_name", nullable = false)
 	private String frequentlyShopName;
+
+	@Override
+	public int hashCode() {
+		return this.getId().hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FrequentlyShop other = (FrequentlyShop) obj;
+		return Objects.equals(this.getId(), other.getId());
+	}
 
 	/**
 	 * 使用者代號等於
