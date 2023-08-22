@@ -1,7 +1,7 @@
 package tw.clarewinette.models.entities.transactions;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -31,7 +31,7 @@ public class TransactionDataId implements Serializable {
 	private int userId;
 
 	@Column(name = "transaction_date", nullable = false)
-	private Date transactionDate;
+	private LocalDate transactionDate;
 
 	@Column(name = "transaction_seqno", nullable = false)
 	private int transactionSeqno;

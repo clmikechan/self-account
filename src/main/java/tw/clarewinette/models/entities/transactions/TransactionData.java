@@ -1,6 +1,6 @@
 package tw.clarewinette.models.entities.transactions;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -46,7 +46,7 @@ public class TransactionData {
 	private boolean outgoingAccountState;
 
 	@Column(name = "outgoing_accounted_date")
-	private Date outgoingAccountedDate;
+	private LocalDate outgoingAccountedDate;
 
 	@Column(name = "incoming_account_no")
 	private int incomingAccountNo;
@@ -55,7 +55,7 @@ public class TransactionData {
 	private boolean incomingAccountState;
 
 	@Column(name = "incoming_accounted_date")
-	private Date incomingAccountedDate;
+	private LocalDate incomingAccountedDate;
 
 	@Override
 	public int hashCode() {
