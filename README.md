@@ -51,3 +51,7 @@ public class Validator implements ConstraintValidator<ValidationAnnotation, T> {
 
 4. 控管: 每一個 table 之 PK 都要包含 int user_id 欄位. 每一個資料庫存取的地方都要有附加 `where user_id=?` 之條件.(取得 user_id 之方法待確認.)
 5. 日期使用 `java.time.LocalDate`
+
+6. 每一個文字檔案結尾都要是一行空行(也就是不要有 `\ No newline at end of file`)
+
+7. `.java` 檔 commit 前先由 sonarLint 確認沒有須優化事項, eclipse 也沒有黃色或紅色的警告
