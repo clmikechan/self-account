@@ -81,7 +81,6 @@ CREATE TABLE details (
 	details_name VARCHAR (255) NOT NULL,
 	details_type_no smallint NOT NULL,
 	amount decimal(14, 2) NOT NULL,
-	rate decimal(10, 5),
 	PRIMARY KEY (user_id, transaction_date, transaction_seqno, details_seqno),
 	FOREIGN KEY (user_id) REFERENCES user_data (user_id),
 	FOREIGN KEY (user_id, transaction_date, transaction_seqno) REFERENCES transaction_data(user_id, transaction_date, transaction_seqno),

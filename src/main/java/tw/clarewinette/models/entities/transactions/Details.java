@@ -36,9 +36,6 @@ public class Details {
 	@Column(name = "amount")
 	private BigDecimal amount;
 
-	@Column(name = "rate")
-	private BigDecimal rate;
-
 	@Override
 	public int hashCode() {
 		return this.getId().hashCode();
